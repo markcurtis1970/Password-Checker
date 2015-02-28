@@ -1,0 +1,45 @@
+#PasswordChecker
+RunningTotal = 0
+Password = input ("Please enter a password:\n")
+
+PasswordIsGood = False
+charlength = False
+alphanum = False
+diffcases = False
+RunningTotal = 0
+upplow = 0
+checkNo = 1
+alphacount = 0
+if PasswordIsGood is False:
+    while charlength is False:
+        print ("Checking if the password has more than 6 characters")
+        if len (Password) > 6:
+            charlength = True
+            print ("Passed the character length test")
+            RunningTotal = RunningTotal + 1
+        else:
+            Password = input ("Sorry, please enter a new password:\n")
+    while alphanum is False:
+        print ("Checking if the password is alphanumeric.")
+        for chr in (Password):
+            if chr.isdecimal():
+                alphacount = alphacount + 1
+            else:
+                Password = input ("Please enter a new password with numbers included.")
+            if chr.isalpha():
+                alphacount = alphacount + 1
+            else:
+                Password = input ("Please enter a new password with letters included.")
+        if alphacount == 2:
+            print ("Passed the alphanumeric test")
+    if diffcases is False:
+        print ("Checking if the password has different cases")
+        Password2 = str.lower(Password)
+        if Password2 != Password:
+            print ("Passed the different cases test")
+            RunningTotal = RunningTotal + 1
+            diffcases = True
+        else:
+            Password = input ("Sorry, please enter a new password with different cases. Your password is medium.")
+    print ("Nice, your password is good to use!")
+    PasswordIsGood = True
